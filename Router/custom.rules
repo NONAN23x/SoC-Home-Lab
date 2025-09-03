@@ -1,0 +1,1 @@
+alert icmp any any -> any any (msg:"Pinging!!!"; sid:1000001; rev:1;)

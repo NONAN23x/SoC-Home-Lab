@@ -1,0 +1,9 @@
+<decoder name="opencanary-json">
+  <prematch>^{.*"node_id":</prematch>
+
+  <regex>
+    "dst_host":"([^"]*)".*"dst_port":\s*([^,]*).*"local_time":"([^"]*)".*"local_time_adjusted":"([^"]*)".*"logtype":\s*([^,]*).*"node_id":"([^"]*)".*"src_host":"([^"]*)".*"src_port":\s*([^,]*).*"utc_time":"([^"]*)"
+  </regex>
+
+  <order>dst_host,dst_port,local_time,local_time_adjusted,logtype,node_id,src_host,src_port,utc_time</order>
+</decoder>
