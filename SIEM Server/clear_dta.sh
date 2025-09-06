@@ -1,0 +1,1 @@
+curl -X DELETE "https://localhost:9200/wazuh-alerts-*" -u admin:Cho0HS0nU4*FVVnBZ+0?ycAdNFObuA+r --insecure

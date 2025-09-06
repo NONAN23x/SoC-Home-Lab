@@ -1,0 +1,1 @@
+opencanaryd --start --uid=nobody --gid=10

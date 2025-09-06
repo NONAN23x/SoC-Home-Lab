@@ -37,8 +37,8 @@
   <rule id="100502" level="10">
     <decoded_as>json</decoded_as>
     <field name="logtype">2000</field>
-    <field name="dst_port">5900</field>
-    <description>OpenCanary VNC login attempt detected</description>
+    <field name="dst_port">3306</field>
+    <description>OpenCanary MySQL login attempt detected</description>
   </rule>
 
 </group>
