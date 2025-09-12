@@ -70,7 +70,7 @@ This home lab Security Operations Centre (SoC) setup uses VirtualBox to host fiv
 <br>
 
 # 3. Proof Of Concept
-[![SoCHomeLab](https://img.youtube.com/vi/vIIKU-PxHz8/0.jpg)](https://www.youtube.com/watch?v=vIIKU-PxHz8)
+[![SoCHomeLab](./assets/yt.png)](https://www.youtube.com/watch?v=vIIKU-PxHz8)
 
 
 
