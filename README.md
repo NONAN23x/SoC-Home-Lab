@@ -131,6 +131,7 @@ You do need a beefy computer to run every component mentioned in this Lab, if yo
 ### By the end of this lab, we learn:
 
 </div>
+</div>
 
 *   Understand the architecture and components of a modern Security Operations Center (SoC).
 *   Configure and manage a virtualized network environment using pfSense (an open-source router with *FreeBSD OS*).
