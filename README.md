@@ -62,7 +62,7 @@ This home lab Security Operations Centre (SoC) setup uses VirtualBox to host fiv
 
 - pfSense Router (`192.168.1.1`): Acts as the network gateway, routing traffic from *WAN* port and into your virtualbox's *Internal network*. Runs firewall and _IDS/IPS_ via *Snort*, can manage VPNs, and create DMZ to segregate the internal network
 - Ubuntu Server (`192.168.1.25`): Running *Wazuh* *SIEM/XDR* for security operations management, the main machine managing the *SoC*
-- Fedora Server (`192.168.1.42`): Honeypot server faking various services and forwarding traffic to the *Wazuh*
+- Fedora Server (`192.168.1.42`): Honeypot server faking various services and forwarding traffic to the *Wazuh* server
 - Windows 11 Machine (`192.168.1.11`): Simulates a user device, runs malware detection, and forwards events to the _SIEM_
 - Kali Linux Machine (`192.168.1.8`): Adversary simulation device for running attack campaigns and testing detection capabilities
 
@@ -70,9 +70,9 @@ This home lab Security Operations Centre (SoC) setup uses VirtualBox to host fiv
 <br>
 
 # 3. Proof Of Concept
-</div>
+[![SoCHomeLab](https://img.youtube.com/vi/vIIKU-PxHz8/0.jpg)](https://www.youtube.com/watch?v=vIIKU-PxHz8)
 
-// Fill Later
+
 
 <div align=center>
 <br>
@@ -114,7 +114,6 @@ You do need a beefy computer to run every component mentioned in this Lab, if yo
         <td align="center" width="120">
             <img src="assets/win.png" alt="Windows Logo" width="72" height="72"><br>
             <a href="https://www.microsoft.com/en-us/software-download/windows11">Get Windows 11</a>
-            <a href="https://www.microsoft.com/en-us/software-download/windows11">(Alternate Link)</a>
         </td>
         <td align="center" width="120">
             <img src="assets/fedora.png" alt="Fedora Logo" width="72" height="72"><br>
@@ -122,14 +121,14 @@ You do need a beefy computer to run every component mentioned in this Lab, if yo
         </td>
         <td align="center" width="120">
             <img src="assets/kali.png" alt="Kali Logo" width="72" height="72"><br>
-            <a href="https://www.kali.org/get-kali/">Get Kali Linux</a>
+            <a href="https://www.kali.org/get-kali/#kali-virtual-machines">Get Kali Linux</a>
         </td>
     </tr>
 </table>
 <br>
 
 # 5. Learning Outcomes
-### By the end of this lab, we learn things like:
+### By the end of this lab, we learn:
 
 </div>
 
@@ -156,7 +155,7 @@ Follow specific instructions for your main operating system to setup and install
 Download the guest operating systems image files (.iso) from the links given above
 - Visit **pfSense website**, create an account, download the _netgate installer_ iso
 - Visit **Ubuntu Downloads** page, get Ubuntu Server
-- Visit Microsoft's **Download** page to obtain Windows 11 disk image, or visit the alternate download link for a **debloated install** credentials: `User: `(1 space character)
+- Visit Microsoft's **Download** page to obtain Windows 11's disk image
 - Visit Fedora's **Web page** to download the Fedora Server ISO Image
 - Visit Kali Linux's **download page**, click on **Pre-Configured** virtual machines, download one for virtualbox
 
@@ -173,17 +172,16 @@ Download the guest operating systems image files (.iso) from the links given abo
 - Complete the installation and reboot
 - Access the pfSense web interface through the LAN IP address to configure further
 
-### Step 6.4 🪟: Setting up Windows 11 Virtual Machine (User)
+### Step 6.4 🪟: Setting up Windows 11 Virtual Machine
 - Create a new Virtual Machine in VirtualBox, allocate `3172 MB` of RAM and `32 GB` of storage.
 - Attach the first network adapter to `Internal Network` (_same network as LAN in pfSense_).
-- Boot the VM from the Windows 11 ISO, or the provided debloated one
 - Follow the Windows 11 installation prompts.
 - Disable Windows Defender for testing purposes (not recommended in a production environment).
 - Disable all updates to Windows Version
 - Open Command Prompt and run `ipconfig` to verify the IP address and internet connectivity.
 - (Optional) Set a static IP address (e.g., 192.168.1.11) to match the Windows version.
 
-### Step 6.5 🐉: Setting up Kali Linux Virtual Machine (Adversary)
+### Step 6.5 🐉: Setting up Kali Linux Virtual Machine
 - Unpack the downloaded zip file, double click on the blue icon file to automatically setup a vm entry in virtualbox
 - Attach the first network adapter to `Internal Network` (Same Network as LAN in pfSense)
 - Ensure networking is functional
@@ -204,7 +202,7 @@ sudo dnf update
 > - Make sure to hit y, as it's not the default selection
 
 
-### Step 6.7: Setting up Ubuntu Server (SIEM Node)
+### Step 6.7: Setting up Ubuntu Server (Wazuh SIEM/XDR)
 *   Create a new Ubuntu Virtual Machine in VirtualBox, allocate `3172 GB` memory and `32 GB` storage
 *   Attach the first network adapter to `Internal Network` (Same Network as LAN in pfSense)
 *   Boot up the Ubuntu Server and update the packages
@@ -271,8 +269,15 @@ TROPHY
 
 ## 7.5 Settin up pfSense Router
 #### 7.5.1 Installing and Configuring Snort Firewall
+> 🏆 For further steps, refer to the [Adversary/README.md](./Router//README.md) for detailed instructions! 🏆
 
 <br>
 
 # 8. Future Enhancements
-// Fill Later
+This project is designed with modularity and flexibility in mind, ensuring seamless integration of future enhancements. Potential additions include:
+
+*   **OpenCTI Integration**: Enhance threat intelligence capabilities by integrating OpenCTI.
+*   **DMZ Zones**: Create dedicated DMZ zones for user and adversary simulation, improving network segmentation and security.
+*   **Additional Security Tools**: Incorporate tools like Sysmon and Suricata to further enhance monitoring and detection capabilities as needed.
+*   **Android Machine Integration**: Incorporate an Android virtual machine for mobile application security testing and reverse engineering.
+*   **Active Directory**: Implement Active Directory to simulate a real enterprise environment.
