@@ -8,15 +8,15 @@ A home lab project :)
 ![Open Source](https://img.shields.io/badge/Open%20Source-Yes-brightgreen?style=for-the-badge)
 ![Issue Skill](https://img.shields.io/badge/Issues-Skill-red?style=for-the-badge)
 
-![SoCLab](assets/socLab.png)
+[![SoCHomeLab](./assets/yt.png)](https://www.youtube.com/watch?v=vIIKU-PxHz8)
 
 This repository documents the steps I took for building a personal, modern, free and open source Security Operations Centre (SoC) lab at home!
 
 Whether you're a blue team rookie or a seasoned cyber geek, this lab will help you level up your home defense game
 
-<br>
 
-🌸 **Key Features**
+## Features at a glance
+
 </div>
 
 - **Intelligent XDR**: Wazuh detects malware and **instantly** removes it
@@ -37,12 +37,11 @@ Whether you're a blue team rookie or a seasoned cyber geek, this lab will help y
 |------|------------------------|
 | 1    | Problem Statement     |
 | 2    | Techical Overview    |
-| 3    | Proof Of Concept |
-| 4    | Pre Requisites |
-| 5 | Learning Outcomes |
-| 6    | Software Installation |
-| 7 | Software Configuration |
-| 8    | Future Enhancements |
+| 3    | Pre Requisites |
+| 4 | Learning Outcomes |
+| 5    | Software Installation |
+| 6 | Software Configuration |
+| 7    | Future Enhancements |
 
 <br>
 
@@ -69,15 +68,7 @@ This home lab Security Operations Centre (SoC) setup uses VirtualBox to host fiv
 <div align=center>
 <br>
 
-# 3. Proof Of Concept
-[![SoCHomeLab](./assets/yt.png)](https://www.youtube.com/watch?v=vIIKU-PxHz8)
-
-
-
-<div align=center>
-<br>
-
-# 4. Pre Requisites
+# 3. Pre Requisites
 
 ### Hardware Requirements
 </div>
@@ -127,7 +118,7 @@ You do need a beefy computer to run every component mentioned in this Lab, if yo
 </table>
 <br>
 
-# 5. Learning Outcomes
+# 4. Learning Outcomes
 ### By the end of this lab, we learn:
 
 </div>
@@ -146,13 +137,13 @@ You do need a beefy computer to run every component mentioned in this Lab, if yo
 <br>
 <div align=center>
 
-# 6. Software Installation
+# 5. Software Installation
 </div>
 
-### Step 6.1 🤖: Install Oracle VirtualBox
+### Step 5.1 🤖: Install Oracle VirtualBox
 Follow specific instructions for your main operating system to setup and install virtualbox, detailed walkthrough for this part is not covered
 
-### Step 6.2 📀: Download the Iso files
+### Step 5.2 📀: Download the Iso files
 Download the guest operating systems image files (.iso) from the links given above
 - Visit **pfSense website**, create an account, download the _netgate installer_ iso
 - Visit **Ubuntu Downloads** page, get Ubuntu Server
@@ -160,7 +151,7 @@ Download the guest operating systems image files (.iso) from the links given abo
 - Visit Fedora's **Web page** to download the Fedora Server ISO Image
 - Visit Kali Linux's **download page**, click on **Pre-Configured** virtual machines, download one for virtualbox
 
-### Step 6.3 🛜: Setting up the pfSense router
+### Step 5.3 🛜: Setting up the pfSense router
 
 - Create a new Virtual Machine in VirtualBox of OS type: **BSD** and variant **FreeBSD** 64 bit. 
 - Allocate just `512` MB of memory and `8 GB` storage.
@@ -173,7 +164,7 @@ Download the guest operating systems image files (.iso) from the links given abo
 - Complete the installation and reboot
 - Access the pfSense web interface through the LAN IP address to configure further
 
-### Step 6.4 🪟: Setting up Windows 11 Virtual Machine
+### Step 5.4 🪟: Setting up Windows 11 Virtual Machine
 - Create a new Virtual Machine in VirtualBox, allocate `3172 MB` of RAM and `32 GB` of storage.
 - Attach the first network adapter to `Internal Network` (_same network as LAN in pfSense_).
 - Follow the Windows 11 installation prompts.
@@ -182,7 +173,7 @@ Download the guest operating systems image files (.iso) from the links given abo
 - Open Command Prompt and run `ipconfig` to verify the IP address and internet connectivity.
 - (Optional) Set a static IP address (e.g., 192.168.1.11) to match the Windows version.
 
-### Step 6.5 🐉: Setting up Kali Linux Virtual Machine
+### Step 5.5 🐉: Setting up Kali Linux Virtual Machine
 - Unpack the downloaded zip file, double click on the blue icon file to automatically setup a vm entry in virtualbox
 - Attach the first network adapter to `Internal Network` (Same Network as LAN in pfSense)
 - Ensure networking is functional
@@ -192,7 +183,7 @@ sudo apt update && sudo apt upgrade -y
 ```
 - (Optional) Set a static IP address (e.g., 192.168.1.8)
 
-### Step 6.6 🌐: Setting up Fedora Server (Honeypot)
+### Step 5.6 🌐: Setting up Fedora Server (Honeypot)
 - Create a new Virtual Machine in VirtualBox, OS type **Fedora** allocate `512 MB` of memory and `16 GB` storage
 - Attach the first network adapter to "Internal Network" (Same Network as LAN in pfSense)
 - Boot up the Fedora Server
@@ -203,7 +194,7 @@ sudo dnf update
 > - Make sure to hit y, as it's not the default selection
 
 
-### Step 6.7: Setting up Ubuntu Server (Wazuh SIEM/XDR)
+### Step 5.7: Setting up Ubuntu Server (Wazuh SIEM/XDR)
 *   Create a new Ubuntu Virtual Machine in VirtualBox, allocate `3172 GB` memory and `32 GB` storage
 *   Attach the first network adapter to `Internal Network` (Same Network as LAN in pfSense)
 *   Boot up the Ubuntu Server and update the packages
@@ -228,10 +219,10 @@ curl -sO https://packages.wazuh.com/4.12/wazuh-install.sh && sudo bash ./wazuh-i
 
 <br>
 
-# 7. Software Configuration
+# 6. Software Configuration
 
 
-## 7.1 Configuring Wazuh Dashboard on Ubuntu
+## 6.1 Configuring Wazuh Dashboard on Ubuntu
 - After successfull Wazuh Installation, make sure it's running by executing
 ```shell-session
 systemctl status wazuh-manager
@@ -244,37 +235,36 @@ TROPHY
 > 🏆 For further steps, refer to the [SIEM Server/README.md](SIEM%20Server/README.md) for detailed instructions! 🏆
 
 
-## 7.2 Setting up Windows Machine
-#### 7.2.1 Setting up Wazuh Agent
+## 6.2 Setting up Windows Machine
+#### 6.2.1 Setting up Wazuh Agent
 - Make sure to disable all security updates
 - You can go to Search>Environment Variables> Performance > Let windows choose what's best performance
 - Visit Wazuh Dashboard
 - Open the sidebar by clicking on the top left corner, scroll down to Agents Management and press Add an Agent, You'd be presented with a screen like this
-#### 7.2.2 Setup Malware Removal XDR with Wazuh using Virustotal
-#### 7.2.3 Setup SMB Discoverability for attacks with Kali Linux
-- alsdkjf
+#### 6.2.2 Setup Malware Removal XDR with Wazuh using Virustotal
+#### 6.2.3 Setup SMB Discoverability for attacks with Kali Linux
 > 🏆 For further steps, refer to the [Windows Agent/README.md](Windows%20Agent/README.md) for detailed instructions! 🏆
 
 
-## 7.3 Setting up Fedora Server
-#### 7.3.1 Setting up OpenCanary Honeypot
-#### 7.3.2 Setting up Wazuh Agent
-#### 7.3.3 Forwarding OpenCanary logs to Wazuh
+## 6.3 Setting up Fedora Server
+#### 6.3.1 Setting up OpenCanary Honeypot
+#### 6.3.2 Setting up Wazuh Agent
+#### 6.3.3 Forwarding OpenCanary logs to Wazuh
 > 🏆 For further steps, refer to the [Honeypot Server/README.md](./Honeypot%20Server/README.md) for detailed instructions! 🏆
 
-## 7.4 Setting up Kali Linux Machine
-#### 7.4.1 Setting up Wazuh Agent
-#### 7.4.2 Attacking Mysql Service
-#### 7.4.3 Attacking Ftp Service
+## 6.4 Setting up Kali Linux Machine
+#### 6.4.1 Setting up Wazuh Agent
+#### 6.4.2 Attacking Mysql Service
+#### 6.4.3 Attacking Ftp Service
 > 🏆 For further steps, refer to the [Adversary/README.md](./Adversary/README.md) for detailed instructions! 🏆
 
-## 7.5 Settin up pfSense Router
-#### 7.5.1 Installing and Configuring Snort Firewall
+## 6.5 Settin up pfSense Router
+#### 6.5.1 Installing and Configuring Snort Firewall
 > 🏆 For further steps, refer to the [Adversary/README.md](./Router//README.md) for detailed instructions! 🏆
 
 <br>
 
-# 8. Future Enhancements
+# 7. Future Enhancements
 This project is designed with modularity and flexibility in mind, ensuring seamless integration of future enhancements. Potential additions include:
 
 *   **OpenCTI Integration**: Enhance threat intelligence capabilities by integrating OpenCTI.
